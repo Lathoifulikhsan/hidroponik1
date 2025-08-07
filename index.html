@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hidroponik</title>
+    <title>Dasbor Hidroponik Cerdas</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -126,9 +126,10 @@
         }
 
         .controls {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            display: flex;
+            flex-direction: column;
             gap: 20px;
+            margin-top: 20px;
         }
 
         .control-card {
@@ -147,30 +148,26 @@
             margin-bottom: 15px;
         }
 
-        .control-value {
-            font-size: 24px;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 20px;
+        .control-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
         }
 
         .control-btn {
+            flex: 1;
             padding: 10px;
             border: none;
             border-radius: 5px;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
-        }
-
-        .control-btn.active {
             background-color: var(--primary-green);
             color: white;
         }
 
-        .control-btn.inactive {
-            background-color: var(--soft-gray);
-            color: var(--text-light);
+        .control-btn:hover {
+            background-color: darkgreen;
         }
 
         @media (max-width: 992px) {
@@ -178,13 +175,7 @@
                 padding: 20px;
             }
             .sensor-cards {
-                grid-template-columns: 1fr;
-            }
-            .controls {
-                grid-template-columns: 1fr;
-            }
-            .card-value {
-                font-size: 24px;
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -207,8 +198,8 @@
     <div class="wrapper">
         <div class="main-content">
             <div class="top-bar">
-                <div class="page-title">Hidroponik</div>
-                <button class="logout-btn">Logout</button>
+                <div class="page-title">Dasbor Hidroponik Cerdas</div>
+                <button class="logout-btn">Keluar</button>
             </div>
             
             <div class="dashboard">
@@ -252,26 +243,11 @@
                 
                 <div class="controls">
                     <div class="control-card">
-                        <div class="control-title">Pompa Air</div>
-                        <div class="control-value">STATUS: MANUAL</div>
+                        <div class="control-title">Kontrol Sistem</div>
                         <div class="control-buttons">
-                            <button class="control-btn" onclick="siramAir()">KONTROL MANUAL</button>
-                        </div>
-                    </div>
-                    
-                    <div class="control-card">
-                        <div class="control-title">Lampu Tumbuh</div>
-                        <div class="control-value">STATUS: MANUAL</div>
-                        <div class="control-buttons">
-                            <button class="control-btn" onclick="isiAir()">KONTROL MANUAL</button>
-                        </div>
-                    </div>
-                    
-                    <div class="control-card">
-                        <div class="control-title">Dosis Nutrisi</div>
-                        <div class="control-value">STATUS: MANUAL</div>
-                        <div class="control-buttons">
-                            <button class="control-btn" onclick="tambahNutrisi()">KONTROL MANUAL</button>
+                            <button class="control-btn" onclick="siramAir()">Pompa Air</button>
+                            <button class="control-btn" onclick="isiAir()">Lampu Tumbuh</button>
+                            <button class="control-btn" onclick="tambahNutrisi()">Dosis Nutrisi</button>
                         </div>
                     </div>
                 </div>
